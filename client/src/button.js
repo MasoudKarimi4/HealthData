@@ -1,27 +1,36 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 
-class MyComponent extends React.Component {
-    handleButtonClick = () => {
-     // const child = spawn('./path/to/your/script.sh');
-  
-  //child.stdout.on('data', data => {
-    //    console.log(`Child output: ${data}`);
-    //  });
-  
-    //  child.stderr.on('data', data => {
-     //   console.error(`Child error: ${data}`);
-    //  });
+const MyComponent = () => {
+    const [fileNames, setFileNames] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/files')
+          .then((response) => {
+            setFileNames(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, []);
+
+    const handleButtonClick = () => {
+
     };
-  
-    render() {
-      return (
-        <div>
-          <button onClick={this.handleButtonClick}>Retrieve Random JSON</button>
-        </div>
-      );
-    }
-  }
+
+    return (
+      <div>
+        <button onClick={handleButtonClick}>Click me</button>
+        <ul>
+          {fileNames.map((fileName, index) => (
+            <li key={index}>{fileName}</li>
+          ))}
+        </ul>
+      </div>
+    );
+};
+
 
 export default MyComponent;
