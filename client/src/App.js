@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import MyComponent from './button.js'
 
+
 function App() {
   return (
 
@@ -11,10 +12,10 @@ function App() {
         
         <h1>MedData</h1>
         
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            Get relevant insight into your patient data.
         </p>
+     
         <MyComponent />
       </header>
     </div>
