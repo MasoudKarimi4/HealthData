@@ -17,10 +17,21 @@ fhir_dir = os.path.join(base_dir, '..', 'fhir')
 file_names = os.listdir(fhir_dir)
 
 def getWorkingFile():
+
+
     base_dir = os.path.dirname(os.path.abspath(__file__))
     fhir_dir = os.path.join(base_dir, '..', 'fhir')
     file_names = os.listdir(fhir_dir)
     random_file = random.choice(file_names)
+
+    file_path = os.path.join(fhir_dir, random_file)
+    if os.path.exists(file_path):
+        print("The file exists")
+    else:
+        print("The file does not exist")
+
+    with open(file_path, 'r') as f:
+        content = json.load(f)
 
     
 @app.route('/route', methods=['GET'])
@@ -50,10 +61,13 @@ def route():
         if clinical != 'Body Height':
             return jsonify(clinical)
         else:
-            return jsonify("Indeterminate")
+            return jsonify("Diabetes")
     except KeyError:
-        print("Indeterminate")
-    return jsonify()
+        print("Aspergers")
+
+
+        return jsonify("Common Flu")
+    return jsonify("Indeterminate")
 
 
 

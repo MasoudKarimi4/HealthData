@@ -11,7 +11,6 @@ function App() {
       <header className="App-header">
         
         <h1>MedData</h1>
-        
         <p>
             Get relevant insight into your patient data.
         </p>

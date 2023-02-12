@@ -19,9 +19,17 @@ const MyComponent = () => {
         <button type="button" onClick={handleClick}>
           Generate Patient Statistics
         </button>
+
+        <div class ="container">
         {response && (
-          <p>Dear patient, your personal includes the clinical status of  {response}</p>
-        )}
+          <p class="info">Dear patient, your personal includes the clinical status of  {response}</p>
+        )} 
+</div>
+        
+
+
+
+        
       </div>
     );
   };
